@@ -1,5 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import "../styles/globalStyle.css"
+
+import useInitialState from '../hooks/useInitialState';
+import AppContext from '../context/AppContext';
 
 import Layout from '../components/Layout';
 import Loader from '../containers/Loader';
@@ -7,19 +11,29 @@ import Loader from '../containers/Loader';
 const Home = lazy(() => import('../containers/Home'));
 const AddTask = lazy(() => import('../containers/AddTask'));
 const EditTask = lazy(() => import('../containers/EditTask'));
+const NotFound = lazy(() => import('../containers/NotFound'));
 
-const App = () => (
-  <BrowserRouter>
-    <Layout>
-      <Suspense fallback={<Loader />}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/addtask" component={AddTask} />
-          <Route exact path="/addtask" component={EditTask} />
-        </Switch>
-      </Suspense>
-    </Layout>
-  </BrowserRouter>
-);
+const App = () => {
+  const initialState = useInitialState();
+
+  return (
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+        <Layout>
+          <Suspense
+            fallback={<div className="loader__container"><Loader /></div>}
+          >
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/addtask" component={AddTask} />
+              <Route exact path="/editetask" component={EditTask} />
+              <Route component={NotFound} />
+            </Switch>
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
+    </AppContext.Provider>
+  );
+};
 
 export default App;

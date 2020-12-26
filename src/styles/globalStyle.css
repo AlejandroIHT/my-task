@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  /*----COLORS----*/
+  --main-color-primary: #212121;
+  --main-color-dark: #181818;
+  --main-color-light: #484848;
+  --main-color-white: #ffffff;
+  --main-color-extra-light: #adadad;
+  --main-color-ultimate-light: #dcdcdc;
+  --secondary-color-primary: #03a9f4;
+  --secondaty-color-dark: #007ac1;
+  --secondary-color-light: #67daff;
+  --assent-color-yellow: #ffdc58;
+  --assent-color-red: #ff5858;
+  --assent-color-green: #6bd342;
+
+  /*----FONT SIZE----*/
+  --main-size-title: 32px;
+  --main-size-subtitle: 24px;
+  --main-size-small-subtitle: 20px;
+  --main-size-p: 16px;
+  --main-size-small-p: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-color-dark);
+  margin: 0;
+}
+
+.reset-margin {
+  margin: 0;
+}
+
+.global-max-width-100 {
+  width: 100%;
+}
+
+.global-padding {
+  padding: 16px 24px;
+}
+
+.global-padding-container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.global-padding-container-page {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+
+.global-color-text {
+  color: var(--main-color-white);
+}
+
+.global-background-color {
+  background-color: var(--main-color-dark);
+}
+
+.loader__container {
+  margin-top: 40px;
+  text-align: center;
+}

@@ -1,3 +1,5 @@
+@import '../globalStyle.css';
+
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -15,7 +17,7 @@
   border: 8px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: var(--main-color-extra-light) transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {

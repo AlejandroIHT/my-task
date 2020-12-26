@@ -1,0 +1,16 @@
+@import '../globalStyle.css';
+
+.tasks__container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.tasks__quantity p {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--main-color-light);
+  font-weight: 600;
+}
+

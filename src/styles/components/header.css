@@ -1,0 +1,10 @@
+@import '../globalStyle.css';
+
+.header {
+  background-color: var(--main-color-primary);
+}
+
+.header__title {
+  color: var(--main-color-white);
+  font-size: var(--main-size-title);
+}

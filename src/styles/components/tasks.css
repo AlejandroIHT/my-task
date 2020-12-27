@@ -10,7 +10,11 @@
 .tasks__quantity p {
   padding: 4px 8px;
   border-radius: 4px;
-  background-color: var(--main-color-light);
+  background-color: var(--main-color-primary);
   font-weight: 600;
 }
 
+.tasks__search__container:focus,
+.tasks__search__container:active {
+ background-color: #007ac10f;
+}

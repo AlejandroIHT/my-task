@@ -3,7 +3,7 @@
 .task {
   margin-bottom: 20px;
   border-radius: 8px;
-  border: 1px solid #484848;
+  border: 1px solid var(--main-color-light);
 }
 
 .task__header {
@@ -28,7 +28,7 @@
   font-size: 12px;
   padding: 2px 4px;
   margin-left: 4px;
-  background-color: #007ac1;
+  background-color: var(--secondaty-color-dark);
   border-radius: 4px;
 }
 
@@ -79,7 +79,7 @@
   font-size: var(--main-size-small-p);
   font-style: italic;
   font-weight: 700;
-  padding: 16px 24px;
+  padding: 16px 24px 12px 24px;
   padding-top: 8px;
 }
 

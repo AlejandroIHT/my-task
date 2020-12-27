@@ -4,7 +4,7 @@ import '../styles/components/header.css';
 
 const Header = () => (
   <header className="header global-padding">
-    <h1 className="header__title reset-margin">My Task</h1>
+    <h1 className="header__title reset-margin">Mis Tareas</h1>
   </header>
 );
 

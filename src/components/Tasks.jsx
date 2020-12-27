@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/components/tasks.css';
 import Task from './Task';
 import Search from './Search';
+import Filters from './Filters';
 
 const Tasks = ({ tasks }) => (
   <div className="tasks">
@@ -13,6 +14,8 @@ const Tasks = ({ tasks }) => (
     </div>
 
     <Search />
+
+    <Filters />
 
     <div className="tasks__container">
       {tasks.map((task) => (

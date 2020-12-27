@@ -4,6 +4,10 @@
   background-color: var(--main-color-primary);
 }
 
+.header__link {
+  text-decoration: none;
+}
+
 .header__title {
   color: var(--main-color-white);
   font-size: var(--main-size-title);

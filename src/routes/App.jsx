@@ -26,7 +26,7 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/addtask" component={AddTask} />
-              <Route exact path="/editetask" component={EditTask} />
+              <Route exact path="/editetask?task=:id" component={EditTask} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

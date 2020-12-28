@@ -1,7 +1,8 @@
 @import '../globalStyle.css';
 
 .header {
-  background-color: var(--main-color-primary);
+  background-color: var(--main-color-dark);
+  border-bottom: 1px solid var(--main-color-primary);
 }
 
 .header__link {

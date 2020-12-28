@@ -2,25 +2,37 @@
 
 :root {
   /*----COLORS----*/
-  --main-color-primary: #212121;
-  --main-color-dark: #181818;
-  --main-color-light: #484848;
+  --main-color-primary: #2B2D3C;
+  --main-color-dark: #1E1C29;
+  --main-color-light: #246BF9;
   --main-color-white: #ffffff;
-  --main-color-extra-light: #adadad;
+  --main-color-extra-light: #7B7E8D;
   --main-color-ultimate-light: #dcdcdc;
   --secondary-color-primary: #03a9f4;
   --secondaty-color-dark: #007ac1;
   --secondary-color-light: #67daff;
-  --assent-color-yellow: #ffdc58;
-  --assent-color-red: #ff5858;
-  --assent-color-green: #6bd342;
+  --assent-color-yellow: #F6F65D;
+  --assent-color-red: #F65D5D;
+  --assent-color-green:#5DF6AA;
+  --lvl-color-opac-green: #4caf50;
+  --lvl-color-green: #66bb6a;
+  --lvl-color-light-green: #9ccc65;
+  --lvl-color-lime: #d4e157;
+  --lvl-color-light-yellow: #ffee58;
+  --lvl-color-yellow: #ffeb3b;
+  --lvl-color-amber: #ffca28;
+  --lvl-color-orange: #ffa726;
+  --lvl-color-deep-orange: #ff7043;
+  --lvl-color-red: #ef5350;
+
 
   /*----FONT SIZE----*/
-  --main-size-title: 32px;
-  --main-size-subtitle: 24px;
-  --main-size-small-subtitle: 20px;
-  --main-size-p: 16px;
-  --main-size-small-p: 12px;
+  --main-size-title: 36px;
+  --main-size-subtitle: 28px;
+  --main-size-small-subtitle: 24px;
+  --main-size-p: 20px;
+  --main-size-small-p: 16px;
+  --main-size-ultra-small-p: 12px;
 }
 
 * {
@@ -43,7 +55,7 @@ body {
 }
 
 .global-padding {
-  padding: 16px 24px;
+  padding: 16px 4%;
 }
 
 .global-padding-container {
@@ -52,8 +64,8 @@ body {
 }
 
 .global-padding-container-page {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 4%;
+  padding-right: 4%;
   padding-top: 48px;
   padding-bottom: 80px;
 }

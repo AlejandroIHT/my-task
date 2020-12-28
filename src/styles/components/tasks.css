@@ -1,5 +1,11 @@
 @import '../globalStyle.css';
 
+.tasks__container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 .tasks__container__header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +24,7 @@
 
 .tasks__quantity p {
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: var(--main-color-primary);
   font-weight: 600;
 }
@@ -26,19 +32,6 @@
 .tasks__search__container:focus,
 .tasks__search__container:active {
   background-color: #007ac10f;
-}
-
-.tasks__container__header--button {
-  color: white;
-  font-weight: 800;
-  background: var(--secondaty-color-dark);
-  padding: 16px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.tasks__container__header--button:hover {
-  background: var(--secondary-color-primary);
 }
 
 @media (max-width: 540px) {
@@ -52,13 +45,8 @@
     margin-bottom: 16px;
   }
 
-  .tasks__container__header--column,
-  .tasks__container__header--button {
+  .tasks__container__header--column {
     width: 100%;
     text-align: center;
-  }
-
-  .tasks__container__header--button {
-    margin: 0;
   }
 }

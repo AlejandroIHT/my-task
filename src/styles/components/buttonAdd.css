@@ -1,0 +1,25 @@
+@import '../globalStyle.css';
+
+.button__container__add {
+  position: fixed;
+  bottom: 64px;
+  right: 4%;
+}
+
+.button__add {
+  width: 80px;
+  height: 80px;
+  color: white;
+  font-size: 44px;
+  font-weight: 900;
+  background-color: var(--main-color-light);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px 4px #246bf97d;
+  cursor: pointer;
+}
+
+.button__add:hover {
+  background: #3478ff;
+  box-shadow: 0 4px 8px 0px #246bf97d;
+}

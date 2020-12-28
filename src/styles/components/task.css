@@ -1,7 +1,7 @@
 @import '../globalStyle.css';
 
 .task {
-  width: 365px;
+  width: calc(100% / 4);
   padding: 28px 32px;
   margin: 16px 32px 16px 0;
   background-color: var(--main-color-primary);
@@ -112,12 +112,21 @@
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .task__content {
-    flex-direction: column;
+@media (max-width: 1252px) {
+  .task {
+    width: calc(100% / 4.5);
   }
+}
 
-  .task__content p {
-    margin-bottom: 4px;
+@media (max-width: 1127px) {
+  .task {
+    width: calc(100% / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .task {
+    width: 100%;
+    margin-right: 0;
   }
 }

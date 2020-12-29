@@ -9,8 +9,6 @@ import Layout from '../components/Layout';
 import Loader from '../containers/Loader';
 
 const Home = lazy(() => import('../containers/Home'));
-const AddTask = lazy(() => import('../containers/AddTask'));
-const EditTask = lazy(() => import('../containers/EditTask'));
 const NotFound = lazy(() => import('../containers/NotFound'));
 
 const App = () => {
@@ -25,8 +23,6 @@ const App = () => {
           >
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/addtask" component={AddTask} />
-              <Route exact path="/editetask?task=:id" component={EditTask} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

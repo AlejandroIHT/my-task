@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/components/buttonAdd.css';
 
-const ButtonAdd = () => (
-  <Link to="/addtask" className="button__container__add">
-    <button className="button__add" type="button">
-      +
-    </button>
-  </Link>
+const ButtonAdd = ({ handleClick }) => (
+  <a
+    className="button__add button__container__add"
+    onClick={handleClick}
+    href="#header"
+  >
+    +
+  </a>
 );
 
 export default ButtonAdd;

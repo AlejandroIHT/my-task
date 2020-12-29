@@ -7,12 +7,16 @@
 }
 
 .button__add {
+  display: flex;
   width: 80px;
   height: 80px;
   color: white;
   font-size: 44px;
   font-weight: 900;
   background-color: var(--main-color-light);
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 50%;
   box-shadow: 0 8px 16px 4px #246bf97d;

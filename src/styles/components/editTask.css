@@ -1,15 +1,14 @@
 @import '../globalStyle.css';
 
-.newTask {
+.task {
   width: calc(100% / 4);
   padding: 28px 32px;
   margin: 16px 32px 16px 0;
-  background-color: transparent;
+  background-color: var(--main-color-primary);
   border-radius: 16px;
-  border: 2px dashed white;
 }
 
-.newTask__header__status {
+.task__header__status {
   font-weight: 600;
   font-size: var(--main-size-ultra-small-p);
   display: flex;
@@ -17,36 +16,11 @@
   align-items: center;
 }
 
-.status__select--red {
-  font-weight: 600;
-  color: var(--assent-color-red);
-  background: none;
-  border: none;
-}
-
-.status__select--yellow {
-  font-weight: 600;
-  color: var(--assent-color-yellow);
-  background: none;
-  border: none;
-}
-
-.status__select--red:active,
-.status__select--yellow:focus {
-  outline: none;
-}
-
-.status__select--red option,
-.status__select--yellow option {
-  color: var(--main-color-dark);
-  font-weight: 600;
-}
-
-.newTask__header__status__date {
+.task__header__status__date {
   color: var(--main-color-extra-light);
 }
 
-.newTask__header {
+.task__header {
   color: var(--main-color-white);
   font-size: var(--main-size-ultra-small-p);
   display: flex;
@@ -56,14 +30,14 @@
   margin-bottom: 24px;
 }
 
-.newTask__header__title {
+.task__header__title {
   font-size: var(--main-size-p);
   font-weight: 900;
   text-align: left;
   margin-right: 4px;
 }
 
-.newTask__header__level {
+.task__header__level {
   min-width: 46px;
   color: white;
   font-weight: 600;
@@ -75,7 +49,7 @@
   border-radius: 5px;
 }
 
-.newTask__header span.newTask__header__title__date {
+.task__header span.task__header__title__date {
   min-width: 64px;
   color: #adadad;
   font-size: var(--main-size-small-p);
@@ -84,22 +58,22 @@
   background-color: initial;
 }
 
-.newTask__header__status--red {
+.task__header__status--red {
   color: var(--assent-color-red);
   text-align: right;
 }
 
-.newTask__header__status--green {
+.task__header__status--green {
   color: var(--assent-color-green);
   text-align: right;
 }
 
-.newTask__header__status--yellow {
+.task__header__status--yellow {
   color: var(--assent-color-yellow);
   text-align: right;
 }
 
-.newTask__content {
+.task__content {
   color: var(--main-color-white);
   font-weight: 300;
   display: flex;
@@ -108,11 +82,11 @@
   margin-bottom: 40px;
 }
 
-.newTask__content__row {
+.task__content__row {
   margin-bottom: 4px;
 }
 
-.newTask__container__button {
+.task__container__button {
   text-align: left;
   margin-bottom: 20px;
 }
@@ -129,7 +103,7 @@
   cursor: pointer;
 }
 
-.newTask__footer {
+.task__footer {
   display: flex;
   flex-wrap: wrap;
   color: var(--main-color-extra-light);
@@ -139,19 +113,19 @@
 }
 
 @media (max-width: 1252px) {
-  .newTask {
+  .task {
     width: calc(100% / 4.5);
   }
 }
 
 @media (max-width: 1127px) {
-  .newTask {
+  .task {
     width: calc(100% / 3);
   }
 }
 
 @media (max-width: 768px) {
-  .newTask {
+  .task {
     width: 100%;
     margin-right: 0;
   }

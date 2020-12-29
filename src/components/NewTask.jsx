@@ -1,98 +1,45 @@
 import React from 'react';
 import '../styles/components/newTask.css';
 
+import Tag from './Tag';
+
 const NewTask = () => (
-  <div className="newTasks">
-    <div className="newTasks__container__header">
-      <h1 className="newTasks__title">Agregar tarea</h1>
+  <div className="newTask">
+    <div className="newTask__header__status">
+      <p className="newTask__header__status--red">
+        <i className="fas fa-circle" />
+        <select className="status__select--red" name="select">
+          <option className="newTask__header__status__option" value="value1">en cola</option>
+          <option className="newTask__header__status__option" value="value2">en proceso</option>
+        </select>
+      </p>
+      <p className="newTask__header__status__date">{`2020-07-19`}</p>
     </div>
-    <div className="newTasks__container">
-      <div className="newTasks__container__input">
-        <input
-          type="text"
-          className="input--name"
-          name="task-name"
-          placeholder="Nombre de la tarea..."
-        />
+    <div className="newTask__header">
+      <h2 className="newTask__header__title">{`Nombre de la tarea`}</h2>
+      <p className="newTask__header__level">{`nivel: 8`}</p>
+    </div>
+    <div className="newTask__content">
+      <div className="newTask__content__row">
+        <p>
+          <strong>De: </strong> {`Alejandro Herrera`}
+        </p>
       </div>
-      <div className="newTasks__container__level">
-        <button type="button" className="input__lvl input--lvl-1">
-          <p>1</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-2">
-          <p>2</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-3">
-          <p>3</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-4">
-          <p>4</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-5">
-          <p>5</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-6">
-          <p>6</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-7">
-          <p>7</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-8">
-          <p>8</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-9">
-          <p>9</p>
-          <p>nivel</p>
-        </button>
-        <button type="button" className="input__lvl input--lvl-10">
-          <p>10</p>
-          <p>nivel</p>
-        </button>
+      <div className="newTask__content__row">
+        <p>
+          <strong>Para: </strong>
+          {`Maximiliano Opitz`}
+        </p>
       </div>
-      <div className="newTasks__container__input input--d-inline-flex m-r">
-        <label htmlFor="newTask__input--date" className="label--date">
-          Fecha de término
-        </label>
-        <input id="newTask__input--date" type="date" />
+      <div className="newTask__content__row">
+        <p>
+          <strong>Fecha término: </strong>
+          {`2020-12-07`}
+        </p>
       </div>
-      <div className="newTasks__container__input input--d-inline-flex m-l">
-        <label
-          htmlFor="newTask__input--name-create"
-          className="label--name--create"
-        >
-          Nombre del solicitante
-        </label>
-        <input id="newTask__input--name-create" type="text" placeholder="Nombre Apellido..." />
-      </div>
-      <div className="newTasks__container__input">
-        <label
-          htmlFor="newTask__input--name-assigned"
-          className="label--name--assigned"
-        >
-          Nombre del asignado
-        </label>
-        <input id="newTask__input--name-assigned" type="text" placeholder="Nombre Apellido..." />
-      </div>
-      <div className="newTasks__container__input">
-        <label htmlFor="newTask__input--state" className="label--state">
-          Estado
-        </label>
-        <input id="newTask__input--state" type="text" />
-      </div>
-      <div className="newTasks__container__input">
-        <label htmlFor="newTask__input--tags" className="label--tags">
-          Tags
-        </label>
-        <input id="newTask__input--tags" type="text" />
-      </div>
+    </div>
+    <div className="newTask__footer">
+      <Tag tag="tags" />
     </div>
   </div>
 );

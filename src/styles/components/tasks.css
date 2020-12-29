@@ -18,6 +18,16 @@
   align-items: center;
 }
 
+.tasks__container__header--button {
+  font-size: 24px;
+  color: var(--main-color-light);
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
 .tasks__quantity {
   margin-right: 8px;
 }
@@ -27,6 +37,11 @@
   border-radius: 6px;
   background-color: var(--main-color-primary);
   font-weight: 600;
+}
+
+.tasks__container__header--button:active,
+.tasks__container__header--button:focus {
+  outline: none;
 }
 
 .tasks__search__container:focus,

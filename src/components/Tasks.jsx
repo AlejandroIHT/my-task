@@ -4,7 +4,7 @@ import Task from './Task';
 import Search from './Search';
 import NewTask from './NewTask';
 
-const Tasks = ({ tasks, addTask }) => (
+const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => (
   <div className="tasks">
     <div className="tasks__container__header">
       <div className="tasks__container__header--column">
@@ -25,7 +25,7 @@ const Tasks = ({ tasks, addTask }) => (
     </div>
 
     <div className="tasks__container">
-      {addTask && <NewTask />}
+      {addTask && <NewTask handleClickDiscardTask={handleClickDiscardTask} />}
       {tasks.map((task) => (
         <Task key={task.id} data={task} />
       ))}

@@ -9,12 +9,19 @@ const Home = () => {
   const { tasks } = state;
 
   const handleClickAddTask = () => {
-    setAddTask(!addTask);
+    setAddTask(true);
+  };
+  const handleClickDiscardTask = () => {
+    setAddTask(false);
   };
 
   return (
     <div className="global-background-color global-color-text global-padding-container-page">
-      <Tasks tasks={tasks} addTask={addTask} />
+      <Tasks
+        tasks={tasks}
+        addTask={addTask}
+        handleClickDiscardTask={handleClickDiscardTask}
+      />
       <ButtonAdd handleClick={handleClickAddTask} />
     </div>
   );

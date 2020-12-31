@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import "../styles/globalStyle.css"
+import '../styles/globalStyle.css';
 
 import useInitialState from '../hooks/useInitialState';
 import AppContext from '../context/AppContext';
@@ -9,6 +9,7 @@ import Layout from '../components/Layout';
 import Loader from '../containers/Loader';
 
 const Home = lazy(() => import('../containers/Home'));
+const EditTask = lazy(() => import('../containers/EditTask'));
 const NotFound = lazy(() => import('../containers/NotFound'));
 
 const App = () => {
@@ -19,10 +20,13 @@ const App = () => {
       <BrowserRouter>
         <Layout>
           <Suspense
-            fallback={<div className="loader__container"><Loader /></div>}
+            fallback={
+              <div className="loader__container"><Loader /></div>
+            }
           >
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/editTask" search="?task=:id" component={EditTask} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

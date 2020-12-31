@@ -1,0 +1,132 @@
+@import '../globalStyle.css';
+
+.tasksEdit {
+  width: calc(100% / 3);
+  padding: 28px 32px;
+  margin: 16px 32px 16px 0;
+  background-color: var(--main-color-primary);
+  border-radius: 16px;
+}
+
+.tasksEdit__header__status {
+  font-weight: 600;
+  font-size: var(--main-size-ultra-small-p);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasksEdit__header__status__date {
+  color: var(--main-color-extra-light);
+}
+
+.tasksEdit__header {
+  color: var(--main-color-white);
+  font-size: var(--main-size-ultra-small-p);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+  margin-bottom: 24px;
+}
+
+.tasksEdit__header__title {
+  font-size: var(--main-size-p);
+  font-weight: 900;
+  text-align: left;
+  margin-right: 4px;
+}
+
+.tasksEdit__header__level {
+  min-width: 46px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: var(--main-size-ultra-small-p);
+  padding: 2px 4px;
+  margin-left: 4px;
+  background-color: var(--main-color-light);
+  border-radius: 5px;
+}
+
+.tasksEdit__header span.tasksEdit__header__title__date {
+  min-width: 64px;
+  color: #adadad;
+  font-size: var(--main-size-small-p);
+  font-style: italic;
+  font-weight: 500;
+  background-color: initial;
+}
+
+.tasksEdit__header__status--red {
+  color: var(--assent-color-red);
+  text-align: right;
+}
+
+.tasksEdit__header__status--green {
+  color: var(--assent-color-green);
+  text-align: right;
+}
+
+.tasksEdit__header__status--yellow {
+  color: var(--assent-color-yellow);
+  text-align: right;
+}
+
+.tasksEdit__content {
+  color: var(--main-color-white);
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.tasksEdit__content__row {
+  margin-bottom: 4px;
+}
+
+.tasksEdit__container__button {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.button--edit {
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: var(--main-color-light);
+  padding: 10px 28px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px 0px #246bf97d;
+  cursor: pointer;
+}
+
+.tasksEdit__footer {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--main-color-extra-light);
+  font-size: var(--main-size-small-p);
+  font-style: italic;
+  font-weight: 700;
+}
+
+@media (max-width: 1252px) {
+  .tasksEdit {
+    width: calc(100% / 4.5);
+  }
+}
+
+@media (max-width: 1127px) {
+  .tasksEdit {
+    width: calc(100% / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .tasksEdit {
+    width: 100%;
+    margin-right: 0;
+  }
+}

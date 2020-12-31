@@ -50,7 +50,7 @@ const Task = ({ data }) => (
     <div className="task__container__button">
       <Link
         to={{
-          pathname: '/editetask',
+          pathname: '/editTask',
           search: `?task=${data.id}`,
         }}
       >

@@ -92,6 +92,9 @@ const NewTask = ({ handleClickDiscardTask }) => (
       ></textarea>
     </div>
     <div className="newTask__container__button">
+      <button className="button--create" type="button">
+        Crear
+      </button>
       <button
         onClick={handleClickDiscardTask}
         className="button--discard"

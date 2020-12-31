@@ -18,7 +18,9 @@
 .button--discard:active,
 .button--discard:focus,
 .status__select--red:active,
-.status__select--yellow:focus {
+.status__select--yellow:focus,
+.button--create:focus,
+.button--create:active {
   outline: none;
 }
 
@@ -170,6 +172,9 @@
 }
 
 .newTask__container__button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -207,11 +212,23 @@
 }
 
 .button--discard {
-  width: 100%;
+  width: 45%;
   font-size: 14px;
   font-weight: 900;
   color: var(--main-color-light);
   background: none;
+  padding: 10px 28px;
+  border: 2px solid var(--main-color-light);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button--create {
+  width: 45%;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--main-color-white);
+  background: var(--main-color-light);
   padding: 10px 28px;
   border: 2px solid var(--main-color-light);
   border-radius: 10px;
@@ -239,5 +256,22 @@
   .newTask {
     width: 100%;
     margin-right: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .newTask__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newTask__header--name-task {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .button--discard,
+  .button--create {
+    padding: 10px 16px;
   }
 }

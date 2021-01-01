@@ -18,6 +18,7 @@
 .button--discard:focus,
 .status__select--red:active,
 .status__select--yellow:focus,
+.status__select--green:focus,
 .button--create:focus,
 .button--create:active {
   outline: none;
@@ -45,8 +46,16 @@
   border: none;
 }
 
+.status__select--green {
+  font-weight: 600;
+  color: var(--assent-color-green);
+  background: none;
+  border: none;
+}
+
 .status__select--red option,
-.status__select--yellow option {
+.status__select--yellow option,
+.status__select--green option {
   color: var(--main-color-white);
   font-weight: 600;
   background-color: var(--main-color-primary);
@@ -201,7 +210,7 @@
   font-weight: 700;
   background: none;
   padding: 12px 16px;
-  border: 2px solid var(--main-color-white);
+  border: 2px solid var(--main-color-extra-light);
   border-radius: 8px;
   resize: none;
 }

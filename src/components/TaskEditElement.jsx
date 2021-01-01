@@ -18,38 +18,96 @@ const TaskEditElement = ({ task }) => {
     <div className="taskEditElement">
       <form ref={form}>
         <div className="taskEditElement__header__status">
-          <p
-            className={
-              taskEdit.status === 'en cola'
-                ? 'taskEditElement__header__status--red'
-                : 'taskEditElement__header__status--yellow'
-            }
-          >
-            <i className="fas fa-circle" />
-            <select
-              className={
-                taskEdit.status === 'en cola'
-                  ? 'status__select--red'
-                  : 'status__select--yellow'
-              }
-              name="status"
-              value={taskEdit.status}
-              onChange={handleChange}
-            >
-              <option
-                className="taskEditElement__header__status__option"
-                value="en cola"
+          {taskEdit.status === 'en cola' && (
+            <p className="taskEditElement__header__status--red">
+              <i className="fas fa-circle" />
+              <select
+                className="status__select--red"
+                name="status"
+                value={taskEdit.status}
+                onChange={handleChange}
               >
-                en cola
-              </option>
-              <option
-                className="taskEditElement__header__status__option"
-                value="en proceso"
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en cola"
+                >
+                  en cola
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en proceso"
+                >
+                  en proceso
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="terminada"
+                >
+                  terminada
+                </option>
+              </select>
+            </p>
+          )}
+          {taskEdit.status === 'en proceso' && (
+            <p className="taskEditElement__header__status--yellow">
+              <i className="fas fa-circle" />
+              <select
+                className="status__select--yellow"
+                name="status"
+                value={taskEdit.status}
+                onChange={handleChange}
               >
-                en proceso
-              </option>
-            </select>
-          </p>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en cola"
+                >
+                  en cola
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en proceso"
+                >
+                  en proceso
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="terminada"
+                >
+                  terminada
+                </option>
+              </select>
+            </p>
+          )}
+          {taskEdit.status === 'terminada' && (
+            <p className="taskEditElement__header__status--green">
+              <i className="fas fa-circle" />
+              <select
+                className="status__select--green"
+                name="status"
+                value={taskEdit.status}
+                onChange={handleChange}
+              >
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en cola"
+                >
+                  en cola
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="en proceso"
+                >
+                  en proceso
+                </option>
+                <option
+                  className="taskEditElement__header__status__option"
+                  value="terminada"
+                >
+                  terminada
+                </option>
+              </select>
+            </p>
+          )}
           <p className="taskEditElement__header__status__date">
             {taskEdit.date_start}
           </p>

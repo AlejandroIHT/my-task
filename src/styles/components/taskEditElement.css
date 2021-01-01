@@ -243,25 +243,6 @@
   background: var(--main-color-light);
 }
 
-@media (max-width: 1252px) {
-  .taskEditElement {
-    width: calc(100% / 4.5);
-  }
-}
-
-@media (max-width: 1127px) {
-  .taskEditElement {
-    width: calc(100% / 3);
-  }
-}
-
-@media (max-width: 768px) {
-  .taskEditElement {
-    width: 100%;
-    margin-right: 0;
-  }
-}
-
 @media (max-width: 540px) {
   .taskEditElement__header {
     flex-direction: column;

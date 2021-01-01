@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --hot",
     "build": "webpack --mode production",
     "lint": "eslint src/ --fix",
     "format": "prettier --write '{*.js,srce/**/*.{js,jsx}}'",

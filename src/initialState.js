@@ -14,7 +14,7 @@ export default {
     {
       id: "2",
       name: 'Nombre de la tarea 01',
-      date_start: '2020-01-01',
+      date_start: '2020-11-01',
       date_end: '2020-01-10',
       level: 10,
       person_create: 'Alejandro Herrera',

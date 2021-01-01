@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/taskEdit.css';
 import TaskEditElement from './TaskEditElement';
 
-const TaskEdit = () => (
+const TaskEdit = ({ task }) => (
   <div className="tasksEdit">
     <div className="tasksEdit__container__header">
       <div className="tasksEdit__container__header--column">
@@ -11,7 +11,7 @@ const TaskEdit = () => (
     </div>
 
     <div className="tasksEdit__container">
-      <TaskEditElement />
+      <TaskEditElement task={task} />
     </div>
   </div>
 );

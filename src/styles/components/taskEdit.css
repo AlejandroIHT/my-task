@@ -114,19 +114,7 @@
 
 @media (max-width: 1252px) {
   .tasksEdit {
-    width: calc(100% / 4.5);
-  }
-}
-
-@media (max-width: 1127px) {
-  .tasksEdit {
-    width: calc(100% / 3);
-  }
-}
-
-@media (max-width: 768px) {
-  .tasksEdit {
-    width: 100%;
+    width: initial;
     margin-right: 0;
   }
 }

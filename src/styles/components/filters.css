@@ -1,0 +1,68 @@
+@import '../globalStyle.css';
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: var(--main-color-primary);
+  padding: 24px 28px;
+  border: none;
+  border-radius: 10px;
+}
+
+.filters__container {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+}
+
+.filters__container label {
+  margin-bottom: 4px;
+}
+
+.filters__container input,
+.filters__container select {
+  height: 28px;
+  color: var(--main-color-white);
+  font-weight: 600;
+  background-color: var(--main-color-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.filters__container input:active,
+.filters__container input:focus,
+.filters__container select:active,
+.filters__container select:focus,
+.filters__button:active,
+.filters__button:focus {
+  outline: none;
+}
+
+.filters__container input::-webkit-input-placeholder {
+  color: var(--main-color-extra-light);
+}
+
+.filters__button {
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: var(--main-color-light);
+  padding: 10px 28px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px 0px #246bf97d;
+  cursor: pointer;
+}
+
+@media (max-width: 540px) {
+  .filters__container {
+    width: 100%;
+  }
+}

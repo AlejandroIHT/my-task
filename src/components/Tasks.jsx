@@ -5,8 +5,9 @@ import Search from './Search';
 import NewTask from './NewTask';
 import Filters from './Filters';
 import Order from './Order';
+import Loader from '../containers/Loader';
 
-const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
+const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
   const [tasksSearch, setTasksSearch] = useState([]);
   const [filters, setFilters] = useState(false);
   const [orders, setOrders] = useState(false);
@@ -149,6 +150,11 @@ const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
           </button>
         </div>
       </div>
+      {loading && (
+        <div className="tasks__container__loader">
+          <Loader />
+        </div>
+      )}
 
       {filters && <Filters />}
 

@@ -1,12 +1,37 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../context/AppContext';
 import Tasks from '../components/Tasks';
 import ButtonAdd from '../components/ButtonAdd';
 
+const API = 'https://my-tasks-a68e9-default-rtdb.firebaseio.com/tasks.json';
+
 const Home = () => {
   const [addTask, setAddTask] = useState(false);
-  const { state } = useContext(AppContext);
+  const [loading, setLoading] = useState(false);
+  const { state, getTasks } = useContext(AppContext);
   const { tasks } = state;
+
+  const getTasksFuntion = async () => {
+    setLoading(true);
+    try {
+      const request = await fetch(API, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await request.json();
+      data.splice(0, 1);
+      getTasks(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getTasksFuntion();
+  }, []);
 
   const handleClickAddTask = () => {
     setAddTask(true);
@@ -18,6 +43,7 @@ const Home = () => {
   return (
     <div className="global-background-color global-color-text global-padding-container-page">
       <Tasks
+        loading={loading}
         tasks={tasks}
         addTask={addTask}
         handleClickDiscardTask={handleClickDiscardTask}

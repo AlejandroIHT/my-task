@@ -25,7 +25,7 @@ export default {
     {
       id: "3",
       name: 'Nombre de la tarea 02',
-      date_start: '2020-01-01',
+      date_start: '2020-05-01',
       date_end: '2020-01-10',
       level: 4,
       person_create: 'Alejandro Herrera',
@@ -36,7 +36,7 @@ export default {
     {
       id: "4",
       name: 'Nombre de la tarea 03',
-      date_start: '2020-01-01',
+      date_start: '2020-02-01',
       date_end: '2020-01-10',
       level: 6,
       person_create: 'Alejandro Herrera',
@@ -47,7 +47,7 @@ export default {
     {
       id: "5",
       name: 'Nombre de la tarea 04',
-      date_start: '2020-01-01',
+      date_start: '2020-07-01',
       date_end: '2020-01-10',
       level: 10,
       person_create: 'Alejandro Herrera',
@@ -58,7 +58,7 @@ export default {
     {
       id: "6",
       name: 'Nombre de la tarea 05',
-      date_start: '2020-01-01',
+      date_start: '2020-09-01',
       date_end: '2020-01-10',
       level: 6,
       person_create: 'Alejandro Herrera',

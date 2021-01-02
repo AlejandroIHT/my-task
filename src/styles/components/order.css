@@ -1,0 +1,49 @@
+@import '../globalStyle.css';
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: var(--main-color-primary);
+  padding: 24px 28px;
+  border: none;
+  border-radius: 10px;
+}
+
+.orders__title {
+  margin-bottom: 12px;
+}
+
+.orders__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orders__container__button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: var(--main-color-extra-light);
+  padding: 8px 16px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.orders__container__button:active,
+.orders__container__button:focus {
+  color: var(--main-color-white);
+  background-color: var(--main-color-light);
+  outline: none;
+}
+
+@media (max-width: 540px) {
+  .orders__container {
+    width: 100%;
+  }
+}

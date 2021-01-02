@@ -4,10 +4,12 @@ import Task from './Task';
 import Search from './Search';
 import NewTask from './NewTask';
 import Filters from './Filters';
+import Order from './Order';
 
 const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
   const [tasksSearch, setTasksSearch] = useState([]);
   const [filters, setFilters] = useState(false);
+  const [orders, setOrders] = useState(false);
 
   useEffect(() => {
     setTasksSearch(tasks);
@@ -20,7 +22,105 @@ const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
     setTasksSearch(filter);
   };
 
-  const handleClickFilters = () => setFilters(!filters);
+  const handleClickOrderInLine = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort((first, compare) => {
+      if (first.status === 'en cola' && compare.status === 'en cola') return 0;
+      if (first.status === 'en cola' && compare.status !== 'en cola') return -1;
+      if (first.status !== 'en cola' && compare.status === 'en cola') return 1;
+      return 0;
+    });
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderInProcess = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort((first, compare) => {
+      if (first.status === 'en proceso' && compare.status === 'en proceso')
+        return 0;
+      if (first.status === 'en proceso' && compare.status !== 'en proceso')
+        return -1;
+      if (first.status !== 'en proceso' && compare.status === 'en proceso')
+        return 1;
+      return 0;
+    });
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderFinish = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort((first, compare) => {
+      if (first.status === 'terminada' && compare.status === 'terminada')
+        return 0;
+      if (first.status === 'terminada' && compare.status !== 'terminada')
+        return -1;
+      if (first.status !== 'terminada' && compare.status === 'terminada')
+        return 1;
+      return 0;
+    });
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderMoreEasy = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort((first, compare) => {
+      if (first.level === compare.level) return 0;
+      if (first.level < compare.level) return -1;
+      if (first.level > compare.level) return 1;
+      return 0;
+    });
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderMoreHard = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort((first, compare) => {
+      if (first.level === compare.level) return 0;
+      if (first.level < compare.level) return 1;
+      if (first.level > compare.level) return -1;
+      return 0;
+    });
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderMoreRecent = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort(
+      (first, compare) =>
+        new Date(compare.date_start) - new Date(first.date_start)
+    );
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickOrderMoreOld = () => {
+    const orderTasks = tasksSearch.slice();
+    orderTasks.sort(
+      (first, compare) =>
+        new Date(first.date_start) - new Date(compare.date_start)
+    );
+
+    setTasksSearch(orderTasks);
+  };
+
+  const handleClickFilters = () => {
+    if (!filters) {
+      setOrders(false);
+    }
+    setFilters(!filters);
+  };
+
+  const handleClickOrders = () => {
+    if (!orders) {
+      setFilters(false);
+    }
+    setOrders(!orders);
+  };
 
   return (
     <div className="tasks">
@@ -33,7 +133,11 @@ const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
         </div>
         <div className="tasks__container__header--column">
           <Search handleChangeSearch={handleChangeSearch} />
-          <button type="button" className="tasks__container__header--button">
+          <button
+            type="button"
+            className="tasks__container__header--button"
+            onClick={handleClickOrders}
+          >
             <i className="fas fa-sort-amount-down" />
           </button>
           <button
@@ -47,6 +151,18 @@ const Tasks = ({ tasks, addTask, handleClickDiscardTask }) => {
       </div>
 
       {filters && <Filters />}
+
+      {orders && (
+        <Order
+          handleClickOrderInLine={handleClickOrderInLine}
+          handleClickOrderInProcess={handleClickOrderInProcess}
+          handleClickOrderFinish={handleClickOrderFinish}
+          handleClickOrderMoreEasy={handleClickOrderMoreEasy}
+          handleClickOrderMoreHard={handleClickOrderMoreHard}
+          handleClickOrderMoreRecent={handleClickOrderMoreRecent}
+          handleClickOrderMoreOld={handleClickOrderMoreOld}
+        />
+      )}
 
       <div className="tasks__container">
         {addTask && <NewTask handleClickDiscardTask={handleClickDiscardTask} />}

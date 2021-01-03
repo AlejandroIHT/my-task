@@ -18,98 +18,102 @@ const TaskEditElement = ({ task }) => {
     <div className="taskEditElement">
       <form ref={form}>
         <div className="taskEditElement__header__status">
-          {taskEdit.status === 'en cola' && (
-            <p className="taskEditElement__header__status--red">
-              <i className="fas fa-circle" />
-              <select
-                className="status__select--red"
-                name="status"
-                value={taskEdit.status}
-                onChange={handleChange}
-              >
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en cola"
-                >
-                  en cola
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en proceso"
-                >
-                  en proceso
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="terminada"
-                >
-                  terminada
-                </option>
-              </select>
-            </p>
-          )}
-          {taskEdit.status === 'en proceso' && (
-            <p className="taskEditElement__header__status--yellow">
-              <i className="fas fa-circle" />
-              <select
-                className="status__select--yellow"
-                name="status"
-                value={taskEdit.status}
-                onChange={handleChange}
-              >
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en cola"
-                >
-                  en cola
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en proceso"
-                >
-                  en proceso
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="terminada"
-                >
-                  terminada
-                </option>
-              </select>
-            </p>
-          )}
-          {taskEdit.status === 'terminada' && (
-            <p className="taskEditElement__header__status--green">
-              <i className="fas fa-circle" />
-              <select
-                className="status__select--green"
-                name="status"
-                value={taskEdit.status}
-                onChange={handleChange}
-              >
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en cola"
-                >
-                  en cola
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="en proceso"
-                >
-                  en proceso
-                </option>
-                <option
-                  className="taskEditElement__header__status__option"
-                  value="terminada"
-                >
-                  terminada
-                </option>
-              </select>
-            </p>
+          {taskEdit && (
+            <>
+              {taskEdit.status === 'en cola' && (
+                <p className="taskEditElement__header__status--red">
+                  <i className="fas fa-circle" />
+                  <select
+                    className="status__select--red"
+                    name="status"
+                    value={taskEdit.status}
+                    onChange={handleChange}
+                  >
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en cola"
+                    >
+                      en cola
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en proceso"
+                    >
+                      en proceso
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="terminada"
+                    >
+                      terminada
+                    </option>
+                  </select>
+                </p>
+              )}
+              {taskEdit.status === 'en proceso' && (
+                <p className="taskEditElement__header__status--yellow">
+                  <i className="fas fa-circle" />
+                  <select
+                    className="status__select--yellow"
+                    name="status"
+                    value={taskEdit.status}
+                    onChange={handleChange}
+                  >
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en cola"
+                    >
+                      en cola
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en proceso"
+                    >
+                      en proceso
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="terminada"
+                    >
+                      terminada
+                    </option>
+                  </select>
+                </p>
+              )}
+              {taskEdit.status === 'terminada' && (
+                <p className="taskEditElement__header__status--green">
+                  <i className="fas fa-circle" />
+                  <select
+                    className="status__select--green"
+                    name="status"
+                    value={taskEdit.status}
+                    onChange={handleChange}
+                  >
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en cola"
+                    >
+                      en cola
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="en proceso"
+                    >
+                      en proceso
+                    </option>
+                    <option
+                      className="taskEditElement__header__status__option"
+                      value="terminada"
+                    >
+                      terminada
+                    </option>
+                  </select>
+                </p>
+              )}
+            </>
           )}
           <p className="taskEditElement__header__status__date">
-            {taskEdit.date_start}
+            {taskEdit ? taskEdit.date_start : ""}
           </p>
         </div>
         <div className="taskEditElement__header">
@@ -118,13 +122,13 @@ const TaskEditElement = ({ task }) => {
             className="taskEditElement__header--name-task"
             type="text"
             placeholder="Nombre de la tarea..."
-            value={taskEdit.name}
+            value={taskEdit ? taskEdit.name : ""}
             onChange={handleChange}
           />
           <select
             className="taskEditElement__header--level"
             name="level"
-            value={taskEdit.level}
+            value={taskEdit ? taskEdit.level : ""}
             onChange={handleChange}
           >
             <option
@@ -199,7 +203,7 @@ const TaskEditElement = ({ task }) => {
               className="taskEditElement__content__row--from"
               type="text"
               placeholder="Nombre Apellido..."
-              value={taskEdit.person_create}
+              value={taskEdit ? taskEdit.person_create : ""}
               onChange={handleChange}
             />
           </div>
@@ -212,7 +216,7 @@ const TaskEditElement = ({ task }) => {
               className="taskEditElement__content__row--to"
               type="text"
               placeholder="Nombre Apellido..."
-              value={taskEdit.person_assigned}
+              value={taskEdit ? taskEdit.person_assigned : ""}
               onChange={handleChange}
             />
           </div>
@@ -224,7 +228,7 @@ const TaskEditElement = ({ task }) => {
               name="date_end"
               className="taskEditElement__content__row--date-finish"
               type="date"
-              value={taskEdit.date_end}
+              value={taskEdit ? taskEdit.date_end : ""}
               onChange={handleChange}
             />
           </div>
@@ -234,7 +238,7 @@ const TaskEditElement = ({ task }) => {
             name="tags"
             className="taskEditElement__footer--textarea"
             placeholder="#tags"
-            value={taskEdit.tags}
+            value={taskEdit ? taskEdit.tags : ""}
             onChange={handleChange}
           ></textarea>
         </div>

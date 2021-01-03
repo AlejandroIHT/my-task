@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Http from '../libs/http';
 import AppContext from '../context/AppContext';
 import Tasks from '../components/Tasks';
 import ButtonAdd from '../components/ButtonAdd';
@@ -13,20 +14,10 @@ const Home = () => {
 
   const getTasksFuntion = async () => {
     setLoading(true);
-    try {
-      const request = await fetch(API, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const data = await request.json();
-      data.splice(0, 1);
-      getTasks(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
+    const data = await Http.instance.get(API);
+    data.splice(0, 1);
+    getTasks(data)
+    setLoading(false);
   };
 
   useEffect(() => {

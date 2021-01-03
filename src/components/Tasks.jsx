@@ -171,7 +171,12 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
       )}
 
       <div className="tasks__container">
-        {addTask && <NewTask handleClickDiscardTask={handleClickDiscardTask} />}
+        {addTask && (
+          <NewTask
+            handleClickDiscardTask={handleClickDiscardTask}
+            tasks={tasks}
+          />
+        )}
         {tasksSearch.map((task) => (
           <Task key={task.id} data={task} />
         ))}

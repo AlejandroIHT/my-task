@@ -20,7 +20,9 @@
 .status__select--red:active,
 .status__select--yellow:focus,
 .button--create:focus,
-.button--create:active {
+.button--create:active,
+.tag__delete:active,
+.tag__delete:focus {
   outline: none;
 }
 
@@ -193,6 +195,48 @@
 
 .newTask__footer {
   margin-bottom: 16px;
+}
+
+.newTask__footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 48px;
+  background-color: var(--main-color-primary);
+  padding: 8px;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.newTask__footer__container--tag {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 20px;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  margin-right: 8px;
+  background-color: var(--main-color-extra-light);
+  border-radius: 8px;
+}
+
+.tag__delete {
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  background: none;
+  border: none;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.tag__input {
+  flex: 1;
+  height: 28px;
+  color: white;
+  font-size: 14px;
+  background: none;
+  border: none;
+  padding: 4px 12px;
 }
 
 .newTask__footer--textarea {

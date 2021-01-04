@@ -239,18 +239,6 @@
   padding: 4px 12px;
 }
 
-.newTask__footer--textarea {
-  width: 100%;
-  color: var(--main-color-extra-light);
-  font-size: var(--main-size-small-p);
-  font-weight: 700;
-  background: var(--main-color-primary);
-  padding: 12px 16px;
-  border: none;
-  border-radius: 8px;
-  resize: none;
-}
-
 .newTask__container__button {
   margin: 0;
 }

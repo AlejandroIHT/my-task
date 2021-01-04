@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/components/taskEditElement.css';
 
 const TaskEditElement = ({ task }) => {
+  const [newTag, setNewTag] = useState('');
   const [taskEdit, setTaskEdit] = useState(task);
   const form = useRef(null);
 
@@ -12,6 +13,27 @@ const TaskEditElement = ({ task }) => {
 
   const handleChange = (e) => {
     setTaskEdit({ ...taskEdit, [e.target.name]: e.target.value });
+  };
+
+  const handleChangeNewTag = (e) => {
+    setNewTag(e.target.value);
+  };
+
+  const handleKeyPressNewTag = (e) => {
+    if (e.key === 'Enter') {
+      const taskTags = taskEdit.tags.slice();
+      taskTags.push(newTag);
+      setTaskEdit({ ...taskEdit, tags: taskTags });
+      setNewTag('');
+      e.target.value = '';
+    }
+  };
+
+  const handleClickDeleteTag = (e) => {
+    const taskTags = taskEdit.tags.slice();
+    const tagId = taskTags.indexOf(e.target.name);
+    taskTags.splice(tagId, 1);
+    setTaskEdit({ ...taskEdit, tags: taskTags });
   };
 
   return (
@@ -113,7 +135,7 @@ const TaskEditElement = ({ task }) => {
             </>
           )}
           <p className="taskEditElement__header__status__date">
-            {taskEdit ? taskEdit.date_start : ""}
+            {taskEdit ? taskEdit.date_start : ''}
           </p>
         </div>
         <div className="taskEditElement__header">
@@ -122,13 +144,13 @@ const TaskEditElement = ({ task }) => {
             className="taskEditElement__header--name-task"
             type="text"
             placeholder="Nombre de la tarea..."
-            value={taskEdit ? taskEdit.name : ""}
+            value={taskEdit ? taskEdit.name : ''}
             onChange={handleChange}
           />
           <select
             className="taskEditElement__header--level"
             name="level"
-            value={taskEdit ? taskEdit.level : ""}
+            value={taskEdit ? taskEdit.level : ''}
             onChange={handleChange}
           >
             <option
@@ -203,7 +225,7 @@ const TaskEditElement = ({ task }) => {
               className="taskEditElement__content__row--from"
               type="text"
               placeholder="Nombre Apellido..."
-              value={taskEdit ? taskEdit.person_create : ""}
+              value={taskEdit ? taskEdit.person_create : ''}
               onChange={handleChange}
             />
           </div>
@@ -216,7 +238,7 @@ const TaskEditElement = ({ task }) => {
               className="taskEditElement__content__row--to"
               type="text"
               placeholder="Nombre Apellido..."
-              value={taskEdit ? taskEdit.person_assigned : ""}
+              value={taskEdit ? taskEdit.person_assigned : ''}
               onChange={handleChange}
             />
           </div>
@@ -228,19 +250,39 @@ const TaskEditElement = ({ task }) => {
               name="date_end"
               className="taskEditElement__content__row--date-finish"
               type="date"
-              value={taskEdit ? taskEdit.date_end : ""}
+              value={taskEdit ? taskEdit.date_end : ''}
               onChange={handleChange}
             />
           </div>
         </div>
         <div className="taskEditElement__footer">
-          <textarea
-            name="tags"
-            className="taskEditElement__footer--textarea"
-            placeholder="#tags"
-            value={taskEdit ? taskEdit.tags : ""}
-            onChange={handleChange}
-          ></textarea>
+          <div className="taskEditElement__footer">
+            <div className="taskEditElement__footer__container">
+              {!taskEdit.tags
+                ? ''
+                : taskEdit.tags.map((tag) => (
+                    <div className="taskEditElement__footer__container--tag">
+                      <p>{tag}</p>
+                      <button
+                        name={tag}
+                        className="tag__delete"
+                        type="button"
+                        onClick={handleClickDeleteTag}
+                      >
+                        x
+                      </button>
+                    </div>
+                  ))}
+              <input
+                className="tag__input"
+                type="text"
+                placeholder="Escribe el tag..."
+                value={newTag}
+                onChange={handleChangeNewTag}
+                onKeyPress={handleKeyPressNewTag}
+              />
+            </div>
+          </div>
         </div>
         <div className="taskEditElement__container__button">
           <button className="button--create" type="button">

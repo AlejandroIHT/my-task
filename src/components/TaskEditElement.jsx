@@ -1,15 +1,36 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/components/taskEditElement.css';
+import Http from '../libs/http';
 
-const TaskEditElement = ({ task }) => {
+const TaskEditElement = ({ task, setLoading, setSuccessEditTask }) => {
   const [newTag, setNewTag] = useState('');
   const [taskEdit, setTaskEdit] = useState(task);
-  const form = useRef(null);
+  const [invalidInput, setInvalidInput] = useState(false);
 
   useEffect(() => {
     setTaskEdit(task);
   }, [task]);
+
+  const handleClickSendEditTask = async () => {
+    if (
+      taskEdit.name === '' ||
+      taskEdit.status === '' ||
+      taskEdit.level === null ||
+      taskEdit.person_create === '' ||
+      taskEdit.person_assigned === '' ||
+      taskEdit.date_end === '' ||
+      taskEdit.tags.length === 0
+    ) {
+      setInvalidInput(true);
+      return;
+    }
+    setLoading(true);
+    const URL = `https://my-tasks-a68e9-default-rtdb.firebaseio.com/tasks/${task.id}.json`;
+    await Http.instance.put(URL, JSON.stringify(taskEdit));
+    setLoading(false);
+    setSuccessEditTask(true);
+  };
 
   const handleChange = (e) => {
     setTaskEdit({ ...taskEdit, [e.target.name]: e.target.value });
@@ -38,7 +59,7 @@ const TaskEditElement = ({ task }) => {
 
   return (
     <div className="taskEditElement">
-      <form ref={form}>
+      <form>
         <div className="taskEditElement__header__status">
           {taskEdit && (
             <>
@@ -284,8 +305,19 @@ const TaskEditElement = ({ task }) => {
             </div>
           </div>
         </div>
+        {invalidInput && (
+          <div className="taskEditElement__container__alert">
+            <p className="taskEditElement__container__alert--message">
+              Recuerda llenar todos los campos
+            </p>
+          </div>
+        )}
         <div className="taskEditElement__container__button">
-          <button className="button--create" type="button">
+          <button
+            onClick={handleClickSendEditTask}
+            className="button--create"
+            type="button"
+          >
             Editar
           </button>
           <Link to="/" className="taskEditElement__container__button--link">

@@ -41,7 +41,7 @@ const EditTask = () => {
 
   return (
     <div className="global-background-color global-color-text global-padding-container-page">
-      <TaskEdit task={taskSearch} loading={loading} />
+      <TaskEdit task={taskSearch} loading={loading} setLoading={setLoading} />
     </div>
   );
 };

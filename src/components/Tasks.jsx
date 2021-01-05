@@ -15,7 +15,6 @@ const Tasks = ({
   addTask,
   setAddTask,
   handleClickDiscardTask,
-  handleClickCreateTask,
   setReLoading,
 }) => {
   const [tasksSearch, setTasksSearch] = useState([]);
@@ -263,7 +262,6 @@ const Tasks = ({
         {addTask && (
           <NewTask
             handleClickDiscardTask={handleClickDiscardTask}
-            handleClickCreateTask={handleClickCreateTask}
             tasks={tasks}
             setAddTask={setAddTask}
             setReLoading={setReLoading}

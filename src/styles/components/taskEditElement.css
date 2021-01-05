@@ -269,6 +269,19 @@
   width: 45%;
 }
 
+.taskEditElement__container__alert {
+  background-color: #43131369;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.taskEditElement__container__alert--message {
+  color: var(--assent-color-red);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px;
+}
+
 .button--create {
   width: 45%;
   font-size: 14px;

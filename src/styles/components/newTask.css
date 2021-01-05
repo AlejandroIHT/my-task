@@ -173,6 +173,19 @@
   border: none;
 }
 
+.newTask__container__alert {
+  background-color: #43131369;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.newTask__container__alert--message {
+  color: var(--assent-color-red);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px;
+}
+
 .newTask__container__button {
   display: flex;
   flex-wrap: wrap;

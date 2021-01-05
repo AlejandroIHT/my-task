@@ -6,11 +6,22 @@ import NewTask from './NewTask';
 import Filters from './Filters';
 import Order from './Order';
 import Loader from '../containers/Loader';
+import CreateTasksCorrect from './CreateTasksCorrect';
 
-const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
+const Tasks = ({
+  loading,
+  setLoading,
+  tasks,
+  addTask,
+  setAddTask,
+  handleClickDiscardTask,
+  handleClickCreateTask,
+  setReLoading,
+}) => {
   const [tasksSearch, setTasksSearch] = useState([]);
   const [filters, setFilters] = useState(false);
   const [orders, setOrders] = useState(false);
+  const [successCreateTask, setSuccessCreateTask] = useState(false);
   const [filtersInput, setFiltersInput] = useState({
     status: '',
     level: null,
@@ -24,6 +35,10 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
   useEffect(() => {
     setTasksSearch(tasks);
   }, [tasks]);
+
+  useEffect(() => {
+    if (successCreateTask) setTimeout(() => setSuccessCreateTask(false), 2000);
+  }, [successCreateTask]);
 
   const handleClickFilterInputs = () => {
     let arrayFilter = tasks.slice();
@@ -184,6 +199,10 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
     setOrders(!orders);
   };
 
+  const handleClickSuccess = () => {
+    setSuccessCreateTask(false);
+  };
+
   return (
     <div className="tasks">
       <div className="tasks__container__header">
@@ -238,10 +257,18 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
       )}
 
       <div className="tasks__container">
+        {successCreateTask && (
+          <CreateTasksCorrect handleClickSuccess={handleClickSuccess} />
+        )}
         {addTask && (
           <NewTask
             handleClickDiscardTask={handleClickDiscardTask}
+            handleClickCreateTask={handleClickCreateTask}
             tasks={tasks}
+            setAddTask={setAddTask}
+            setReLoading={setReLoading}
+            setSuccessCreateTask={setSuccessCreateTask}
+            setLoading={setLoading}
           />
         )}
         {tasksSearch.map((task) => (

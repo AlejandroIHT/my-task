@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/components/newTask.css';
+import Http from '../libs/http';
 
-const NewTask = ({ handleClickDiscardTask, tasks }) => {
+const NewTask = ({
+  handleClickDiscardTask,
+  tasks,
+  setAddTask,
+  setReLoading,
+  setSuccessCreateTask,
+  setLoading
+}) => {
   const dateToday = () => {
     const dateTodayFull = new Date();
     const month =
@@ -18,7 +26,7 @@ const NewTask = ({ handleClickDiscardTask, tasks }) => {
   };
   const [newTag, setNewTag] = useState('');
   const [form, setForm] = useState({
-    id: `${tasks.length}`,
+    id: `${tasks.length + 1}`,
     name: '',
     date_start: `${dateToday()}`,
     date_end: '',
@@ -28,6 +36,28 @@ const NewTask = ({ handleClickDiscardTask, tasks }) => {
     tags: [],
     status: 'en cola',
   });
+  const [missingData, setMissingData] = useState(false);
+
+  const handleClickCreateTask = async () => {
+    if (
+      form.name === '' ||
+      form.date_end === '' ||
+      form.person_create === '' ||
+      form.person_assigned === '' ||
+      form.tags.length === 0
+    ) {
+      setMissingData(true);
+      return;
+    }
+
+    setLoading(true);
+    const URL = `https://my-tasks-a68e9-default-rtdb.firebaseio.com/tasks/${form.id}.json`;
+    await Http.instance.put(URL, JSON.stringify(form));
+    setAddTask(false);
+    setLoading(false);
+    setReLoading(true);
+    setSuccessCreateTask(true);
+  };
 
   const handleChange = (e) => {
     if (e.target.name === 'date_end') {
@@ -210,8 +240,19 @@ const NewTask = ({ handleClickDiscardTask, tasks }) => {
           />
         </div>
       </div>
+      {missingData && (
+        <div className="newTask__container__alert">
+          <p className="newTask__container__alert--message">
+            Recuerda llenar todos los campos
+          </p>
+        </div>
+      )}
       <div className="newTask__container__button">
-        <button className="button--create" type="button">
+        <button
+          onClick={handleClickCreateTask}
+          className="button--create"
+          type="button"
+        >
           Crear
         </button>
         <button

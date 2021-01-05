@@ -11,10 +11,71 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
   const [tasksSearch, setTasksSearch] = useState([]);
   const [filters, setFilters] = useState(false);
   const [orders, setOrders] = useState(false);
+  const [filtersInput, setFiltersInput] = useState({
+    status: '',
+    level: null,
+    person_create: '',
+    person_assigned: '',
+    date_start: '',
+    date_end: '',
+    tag: '',
+  });
 
   useEffect(() => {
     setTasksSearch(tasks);
   }, [tasks]);
+
+  const handleClickFilterInputs = () => {
+    let arrayFilter = tasks.slice();
+    if (filtersInput.status) {
+      arrayFilter = arrayFilter.filter(
+        (key) => key.status === filtersInput.status
+      );
+    }
+    if (filtersInput.level) {
+      arrayFilter = arrayFilter.filter(
+        (key) => key.level === filtersInput.level
+      );
+    }
+    if (filtersInput.person_create) {
+      arrayFilter = arrayFilter.filter(
+        (key) =>
+          key.person_create.toUpperCase() ===
+          filtersInput.person_create.toUpperCase()
+      );
+    }
+    if (filtersInput.person_assigned) {
+      arrayFilter = arrayFilter.filter(
+        (key) =>
+          key.person_assigned.toUpperCase() ===
+          filtersInput.person_assigned.toUpperCase()
+      );
+    }
+    if (filtersInput.date_start) {
+      arrayFilter = arrayFilter.filter(
+        (key) => key.date_start === filtersInput.date_start
+      );
+    }
+    if (filtersInput.date_end) {
+      arrayFilter = arrayFilter.filter(
+        (key) => key.date_end === filtersInput.date_end
+      );
+    }
+    if (filtersInput.tag) {
+      arrayFilter = arrayFilter.filter((key) => {
+        const filterTag = key.tags.filter(
+          (tag) => tag.toUpperCase() === filtersInput.tag.toUpperCase()
+        );
+        if (filterTag.length === 0) return false;
+        return true;
+      });
+    }
+    setTasksSearch(arrayFilter);
+  };
+
+  const handleChangeFilterInputs = (e) => {
+    setFiltersInput({ ...filtersInput, [e.target.name]: e.target.value });
+  };
 
   const handleChangeSearch = (e) => {
     const filter = tasks.filter((task) =>
@@ -156,7 +217,13 @@ const Tasks = ({ loading, tasks, addTask, handleClickDiscardTask }) => {
         </div>
       )}
 
-      {filters && <Filters />}
+      {filters && (
+        <Filters
+          filtersInput={filtersInput}
+          handleChangeFilterInputs={handleChangeFilterInputs}
+          handleClickFilterInputs={handleClickFilterInputs}
+        />
+      )}
 
       {orders && (
         <Order

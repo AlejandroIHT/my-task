@@ -206,8 +206,8 @@
 .taskEditElement__footer__container {
   display: flex;
   flex-wrap: wrap;
-  height: 48px;
-  background-color: var(--main-color-primary);
+  height: 64px;
+  background-color: #373948;
   padding: 8px;
   border-radius: 12px;
   overflow: auto;
@@ -223,6 +223,10 @@
   margin-right: 8px;
   background-color: var(--main-color-extra-light);
   border-radius: 8px;
+}
+
+.taskEditElement__footer__container .tag__input::-webkit-input-placeholder {
+  color: var(--main-color-white);
 }
 
 .taskEditElement__footer__container--tag .tag__delete {

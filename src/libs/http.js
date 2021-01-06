@@ -13,21 +13,6 @@ class Http {
     }
   };
 
-  post = async (url, body) => {
-    try {
-      const req = await fetch(url, {
-        method: 'POST',
-        body,
-      });
-      const json = await req.json();
-
-      return json;
-    } catch (error) {
-      console.log('http get method post error', error);
-      throw Error(error);
-    }
-  };
-
   put = async (url, body) => {
     try {
       const req = await fetch(url, {
@@ -39,21 +24,6 @@ class Http {
       return json;
     } catch (error) {
       console.log('http get method put error', error);
-      throw Error(error);
-    }
-  };
-
-  patch = async (url, body) => {
-    try {
-      const req = await fetch(url, {
-        method: 'PATCH',
-        body,
-      });
-      const json = await req.json();
-
-      return json;
-    } catch (error) {
-      console.log('http get method patch error', error);
       throw Error(error);
     }
   };

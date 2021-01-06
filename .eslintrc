@@ -32,7 +32,10 @@
     "FileReader": true,
     "Blob": true,
     "navigator": true,
-    "fetch": false
+    "fetch": false,
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "env": {
+    "jest/globals": true
+  }
 }
